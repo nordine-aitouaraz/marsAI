@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables globales pour un thème "Noir & Bleu" */
+:root {
+  --color-bg: 0 0 0; /* #000000 - black */
+  --color-surface: 17 24 39; /* #111827 - gray-900 */
+  --color-primary: 59 130 246; /* #3b82f6 - blue-500 */
+  --color-primary-soft: 96 165 250; /* #60a5fa - blue-400 */
+  --color-accent: 37 99 235; /* #2563eb - blue-600 */
+  --color-border: 30 64 175; /* #1f2937 - gray-800 */
+  --color-muted: 156 163 175; /* #9ca3af - gray-400 */
+  --color-white: 255 255 255; /* #ffffff - white */
+
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+}
+
+body {
+  @apply bg-brand-bg text-brand-white font-sans antialiased;
+}
+
+a {
+  @apply text-blue-500 hover:text-blue-400 transition-colors;
+}
+
+/* FICHIER: frontend/src/index.css (ajoute en bas) */
+@layer utilities {
+  .bg-white\/6 { background-color: rgb(255 255 255 / 0.06); }
+  .bg-white\/7 { background-color: rgb(255 255 255 / 0.07); }
+  .bg-white\/8 { background-color: rgb(255 255 255 / 0.08); }
+
+  .bg-animated-veil {
+    background: radial-gradient(1200px 500px at 20% 10%, rgba(0,224,255,.09), transparent 60%),
+                radial-gradient(1200px 500px at 80% 30%, rgba(155,92,255,.08), transparent 60%),
+                radial-gradient(900px 600px at 50% 90%, rgba(109,140,255,.08), transparent 62%);
+    animation: veilShift 10s ease-in-out infinite alternate;
+  }
+
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradientX 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glowPulse 5s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 7s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: float 10s ease-in-out infinite;
+  }
+  .animate-float-slower {
+    animation: float 14s ease-in-out infinite;
+  }
+
+  @keyframes gradientX {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: .45; }
+    50% { transform: scale(1.03); opacity: .7; }
+  }
+
+  @keyframes float {
+    0% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -18px, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
+
+  @keyframes veilShift {
+    0% { filter: saturate(1) hue-rotate(0deg); opacity: .55; }
+    100% { filter: saturate(1.25) hue-rotate(12deg); opacity: .75; }
+  }
+}

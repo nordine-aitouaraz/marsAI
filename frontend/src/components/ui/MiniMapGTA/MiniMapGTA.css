@@ -1,0 +1,69 @@
+/* ========== ANIMATIONS SVG MINIMALES ========== */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    r: 15px;
+  }
+  50% {
+    opacity: 0.8;
+    r: 20px;
+  }
+}
+
+@keyframes pulse-star {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 1));
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes radarSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blipPulse {
+  0%, 100% {
+    opacity: 1;
+    r: 1.5;
+  }
+  50% {
+    opacity: 0.5;
+    r: 2;
+  }
+}
+
+/* Festival marker animations */
+#festivalMarker circle:first-of-type {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+#festivalMarker polygon {
+  animation: pulse-star 2s ease-in-out infinite, float 3s ease-in-out infinite;
+}
+
+/* Radar animations */
+#radarSweep {
+  transform-origin: center;
+  animation: radarSpin 4s linear infinite;
+}
+
+.radarBlip {
+  animation: blipPulse 1.5s ease-in-out infinite;
+}
